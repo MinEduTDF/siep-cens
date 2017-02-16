@@ -1,0 +1,141 @@
+<?php
+/*
+  default.thtml design for CakePHP (http://www.cakephp.org)
+  ported from http://www.oswd.org/ (open source template)
+  
+  The designs distributed at OSWD each carry their own seperate
+  open source license which is chosen by the designer 
+  when it is submitted to the site.
+  
+  ported by Shunro Dozono (dozono :@nospam@: gmail.com)
+  2006/7/10
+*/
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="author" content="Luka Cvrk (www.solucija.com)" />
+        <?php echo $html->charset('UTF-8')?>
+        <?php echo $html->css('cake.forms', 'stylesheet', array("media"=>"all" ));?>
+        <?php echo $html->css('internet_services', 'stylesheet', array("media"=>"all" ));?>
+	<title>CakePHP : The PHP Rapid Development Framework :: <?php echo $title_for_layout?></title>
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+			<div class="top_info">
+				<div class="top_info_right">
+					<p><b>You are not Logged in!</b> <a href="#">Log in</a> to check your messages.<br />
+					Do you want to <a href="#">Log in</a> or <a href="#">register</a>?</p>
+				</div>		
+				<div class="top_info_left">
+					<p><b>28. March, 2006</b> - Tuesday<br />
+					Check todays <a href="#">hot topics</a> or <a href="#">new products</a></p>
+				</div>
+			</div>
+			<div class="logo">
+				<h1><a href="#" title="Centralized Internet Services"><span class="dark">Internet</span>Services</a></h1>
+			</div>
+		</div>
+		
+		<div class="bar">
+			<ul>
+				<li class="browse_category">Select Search Category:</li>
+				<li><a href="http://cakephp.org/" accesskey="c">CakePHP Home</a></li>
+				<li class="active">Main</li>
+				<li><a href="http://manual.cakephp.org" accesskey="m">Manual</a></li>
+				<li><a href="http://api.cakephp.org/" accesskey="a">API</a></li>
+				<li><a href="http://bakery.cakephp.org" accesskey="b">Bakery</a></li>
+				<li><a href="https://trac.cakephp.org" accesskey="t">Trac</a></li>
+				<li><a href="http://cakeforge.org" accesskey="f">CakeForge</a></li>
+			</ul>
+		</div>
+		<div class="search_field_s">
+			<form method="post" action="?">
+				<div class="search_form_s">
+				<p>Search the Web: <input type="text" name="search" class="search_s" /> <input type="submit" value="Search" class="submit_s" /> <a class="grey" href="#">Advanced</a></p>
+				</div>
+			</form>
+			
+			<p>Please <a href="#">Sign in</a> or <a href="#">Register</a></p>
+		</div>
+		
+		<div class="left">
+
+                        <?php if ($this->controller->Session->check('Message.flash')) $this->controller->Session->flash(); ?>
+                        <?php echo $content_for_layout?>
+
+			<h3>Fresh News:</h3>
+			<div class="left_box">
+				<?php echo $html->image('bigimage.gif', array("alt"=>"Big Image","class"=>"image"));?>
+				<h2>Expanding Internet Services</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi <a href="#">enim ad minim</a> veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. <a href="#">Duis autem</a> vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu.</p>
+			</div>
+	
+			<h3>Web Directory</h3>
+				<div class="left_side">
+					<p><b><?php echo $html->image('arrow.gif', array("alt"=>">"));?><a class="title" href="#">Arts</a></b><br />
+					<a href="#">Music</a>, <a href="#">Television</a>, <a href="#">Movies</a>...</p>
+					<p><b><?php echo $html->image('arrow.gif', array("alt"=>">"));?><a class="title" href="#">Computers</a></b><br />
+					<a href="#">Internet</a>, <a href="#">Software</a>, <a href="#">Hardware</a>...</p>
+					<p><b><?php echo $html->image('arrow.gif', array("alt"=>">"));?><a class="title" href="#">Shopping</a></b><br />
+					<a href="#">Autos</a>, <a href="#">Clothing</a>, <a href="#">Gifts</a>...</p>
+				</div>
+				<div class="right_side">
+					<p><b><?php echo $html->image('arrow.gif', array("alt"=>">"));?><a class="title" href="#">Business</a></b><br />
+					<a href="#">Jobs</a>, <a href="#">Real Estate</a>, <a href="#">Investing</a>...</p>
+					<p><b><?php echo $html->image('arrow.gif', array("alt"=>">"));?><a class="title" href="#">Health</a></b><br />
+					<a href="#">Fitness</a>, <a href="#">Medicine</a>, <a href="#">Alternative</a>...</p>
+					<p><b><?php echo $html->image('arrow.gif', array("alt"=>">"));?><a class="title" href="#">Sports</a></b><br />
+					<a href="#">Baseball</a>, <a href="#">Basketball</a>, <a href="#">Soccer</a>...</p>
+				</div>
+				
+			<h3>Colaboration:</h3>
+			<div class="left_box"><?php echo $html->image('ad.gif', array("class"=>"image","alt"=>"Big Image"));?>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi <a href="#">enim ad minim</a> veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. <a href="#">Duis autem</a> vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu.<a href="#">Duis autem</a> vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu.</p>
+			</div>
+		</div>	
+		<div class="right">
+			<h3>Top Articles:</h3>
+			<div class="right_articles">
+				<p><?php echo $html->image('image.gif', array("class"=>"image","alt"=>"Image","title"=>"Image"));?><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+			</div>
+			<div class="right_articles">
+				<p><?php echo $html->image('image.gif', array("class"=>"image","alt"=>"Image","title"=>"Image"));?><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+			</div>
+			<h3>Related Readings:</h3>
+			<div class="right_articles">
+				<p><?php echo $html->image('image.gif', array("class"=>"image","alt"=>"Image","title"=>"Image"));?><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+			</div>
+			<div class="right_articles">
+				<p><?php echo $html->image('image.gif', array("class"=>"image","alt"=>"Image","title"=>"Image"));?><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+			</div>
+			<div class="right_articles">
+				<p><?php echo $html->image('image.gif', array("class"=>"image","alt"=>"Image","title"=>"Image"));?><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+			</div>
+			<div class="right_articles">
+				<p><?php echo $html->image('image.gif', array("class"=>"image","alt"=>"Image","title"=>"Image"));?><b>Lorem ipsum dolor sit amet</b><br />consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+			</div>
+		</div>	
+		<div class="footer">
+			<p><a href="#">RSS Feed</a> | <a href="#">Contact</a> | <a href="#">Accessibility</a> | <a href="#">Products</a> | <a href="#">Disclaimer</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> and <a href="http://validator.w3.org/check?uri=referer">XHTML</a><br />
+			&copy; Copyright 2006 Internet Services, Design: Luka Cvrk - <a href="http://www.solucija.com/" title="What's your solution?">Solucija</a></p>
+		</div>
+	</div>
+<p>
+ CakePHP : <a href="http://www.cakefoundation.org/pages/copyright/">&copy; 2006 Cake Software Foundation, Inc.</a>
+</p>
+<a href="http://www.w3c.org/" target="_new">
+ <?php echo $html->image('w3c_css.png', array('alt'=>"valid css", 'border'=>"0"))?>
+</a>
+<a href="http://www.w3c.org/" target="_new">
+ <?php echo $html->image('w3c_xhtml10.png', array('alt'=>"valid xhtml", 'border'=>"0"))?>
+</a>
+<a href="http://www.cakephp.org/" target="_new">
+ <?php echo $html->image('cake.power.png', array('alt'=>"CakePHP : Rapid Development Framework", 'border'=>"0"))?>
+</a>
+
+<?php echo $cakeDebug;?>
+
+</body>
+</html>
