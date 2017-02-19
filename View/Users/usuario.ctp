@@ -43,6 +43,15 @@
 <br/>-->
 <?php //echo $this->Html->link( "Logout",   array('action'=>'logout') ); ?>
 <blockquote>
+  <h3>Breve instructivo para cargar datos institucionales en TRAES.</h3>
+  <hr>
+  <h4>1° PASO: Carga de las Secciones/Cursos</h4><br>
+  <p>Desde el menú: "CARGA --> SECCIONES" crear los cursos/secciones mediante el botón "AGREGAR".</p><br>
+  <h4>2° PASO: Pre-Inscripción de los Alumnos</h4><br>
+  <p>Desde el menú: "CARGA --> ALUMNOS" cargar los datos personales de los potenciales alumnos mediante el botón "AGREGAR".</p><br>
+  <h4>3° PASO: Inscripción de los Alumnos</h4><br>
+  <p>Desde el menú: "CARGA --> INSCRIPCIONES" vincular a los alumnos pre-inscriptos a los cursos y/o materias que cursarán, mediante el botón "AGREGAR".</p><br>
+  <hr>	
   <p>Si buscas resultados distintos, no hagas siempre lo mismo.</p>
   <footer>Frase célebre de<cite title="Source Title">Albert Einstein</cite></footer>
 </blockquote>
