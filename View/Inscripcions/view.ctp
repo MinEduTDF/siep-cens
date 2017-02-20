@@ -171,12 +171,16 @@
                             <div class="unit" >
                                 <?php echo '<b>Nombre:</b> '.$materia['nombre'];?><br>
                                 <?php echo '<b>Alia:</b> '.$materia['alia'];?><br>
-                                <?php echo '<b>Carga horaria:</b> '.$materia['carga_horaria_semanal'].' '.$materia['carga_horaria_en'];?><br>
-                                <div class="text-right">
-                                <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
+                                <?php echo '<b>Carga horaria:</b> '.$materia['carga_horaria_semanal'].' '.$materia['carga_horaria_en'];?>
+                            <br>
+                              <div class="text-right">
                                 <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+                               <?php if(($current_user['role'] == 'superadmin') || ($current_user['role'] == 'admin')): ?>
+                                <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
                                 <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
-                                </div>
+
+                              <?php endif; ?>
+                             </div>
                             </div>
                         </div>
                     </div>

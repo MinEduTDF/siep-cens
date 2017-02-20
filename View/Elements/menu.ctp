@@ -24,6 +24,7 @@
             <li><?php echo $this->Html->link(__('Ciclos'),'/ciclos'); ?></li>
             <!--<li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>-->
             <li><?php echo $this->Html->link(__('Secciones'), '/cursos'); ?></li>
+            <li><?php echo $this->Html->link(__('Espacios'),'/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
             <!--<li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
@@ -37,6 +38,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><?php echo $this->Html->link(__('Secciones'), '/cursos'); ?></li>
+            <li><?php echo $this->Html->link(__('Espacios'),'/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
             <!--<li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
@@ -51,6 +53,7 @@
            <?php if($current_user['role'] == 'usuario'): ?> 
             <li><?php echo $this->Html->link(__('Instituciones'),'/centros'); ?></li>
             <li><?php echo $this->Html->link(__('Secciones'),'/cursos'); ?></li>
+            <li><?php echo $this->Html->link(__('Espacios'),'/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
            <?php endif; ?>

@@ -29,10 +29,16 @@ class CursosInscripcionsController extends AppController {
 				
 		$ciclosId = $this->CursosInscripcion->Inscripcion->find('list', array('fields'=>array('ciclo_id')));
         $ciclos = $this->Ciclo->find('list', array('fields'=>array('nombre'), 'conditions' => array('id' => $ciclosId)));
+        
         $centrosId = $this->CursosInscripcion->Inscripcion->find('list', array('fields'=>array('centro_id')));
         $centros = $this->Centro->find('list', array('fields'=>array('sigla'), 'conditions' => array('id' => $centrosId)));
-        $cursos = $this->CursosInscripcion->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
+        
+        $cursos = $this->CursosInscripcion->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso'), 'conditions' => array('id' => $centrosId)));
+        
+        $ciclos = $this->Ciclo->find('list', array('fields'=>array('nombre'), 'conditions' => array('id' => $ciclosId)));
+		
 		$inscripcions = $this->CursosInscripcion->Inscripcion->find('list', array('fields'=>array('id', 'legajo_nro')));
+        
         $alumnosId = $this->CursosInscripcion->Inscripcion->find('list', array('fields'=>array('alumno_id')));
         $alumnos = $this->Alumno->find('list', array('fields'=>array('nombre_completo_alumno'), 'conditions' => array('id' => $alumnosId)));
   
@@ -53,6 +59,6 @@ class CursosInscripcionsController extends AppController {
 			$conditions['CursosInscripcion.inscripcion_id ='] = $this->params['named']['inscripcion_id'];
 		}
 		$cursosInscripcions = $this->paginate('CursosInscripcion', $conditions);
-		$this->set(compact('cursosInscripcions', 'cicloActual', 'cursos', 'inscripcions', 'ciclos', 'alumnos', 'centros'));
+		$this->set(compact('cursosInscripcions', 'cicloActual', 'cursos', 'inscripcions', 'ciclos', 'alumnos', 'centros', 'materias'));
    }
 }

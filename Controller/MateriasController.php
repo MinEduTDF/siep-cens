@@ -2,9 +2,20 @@
 class MateriasController extends AppController {
 
 	var $name = 'Materias';
-    public $helpers = array('Session');
-	public $components = array('Auth','Session', 'RequestHandler');
+    var $helpers = array('Form', 'Time', 'Js');
+	var $components = array('Session', 'RequestHandler');
 	public $paginate = array('Materia' => array('limit' => 6, 'order' => 'Materia.alia DESC'));
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        //Si el usuario tiene un rol de superadmin le damos acceso a todo.
+        //Si no es así (se trata de un usuario "admin o usuario") tendrá acceso sólo a las acciones que les correspondan.
+        if(($this->Auth->user('role') === 'superadmin')  || ($this->Auth->user('role') === 'admin')) {
+	        $this->Auth->allow();
+	    } elseif ($this->Auth->user('role') === 'usuario') { 
+	        $this->Auth->allow('index', 'view');
+	    } 
+    }
 
     public function sanitize($string, $force_lowercase = true, $anal = false) {
     $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]","}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;","â€", "â€", ",", "<",">", "/", "?");
@@ -20,19 +31,38 @@ class MateriasController extends AppController {
 
 	public function index() {
 		$this->Materia->recursive = 1;
-		
 		$this->paginate['Materia']['limit'] = 6;
 		$this->paginate['Materia']['order'] = $this->Materia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso'), 'order'=>'Curso.anio ASC'));
+		$userCentroId = $this->getUserCentroId();
+		$centrosId = $this->Materia->Curso->find('list', array('fields'=>array('centro_id')));
+        if($this->Auth->user('role') === 'admin') {
+		$this->paginate['Materia']['conditions'] = array($centrosId => $userCentroId);
+		}
+		
+        $this->loadModel('Centro');
+        
+        $centros = $this->Centro->find('list', array('fields'=>array('sigla'), 'conditions' => array('id' => $centrosId)));
+        $cursosId = $this->Materia->find('list', array('fields'=>array('curso_id')));
+        $cursos = $this->Materia->Curso->find('list', array('fields'=>array('nombre_completo_curso'), 'conditions' => array('id' => $cursosId)));
+
 		$this->redirectToNamed();
 		$conditions = array();
 		
+		if(!empty($this->params['named']['centro_id']))
+		{
+			$conditions['Curso.centro_id ='] = $this->params['named']['centro_id'];
+		}
+		if(!empty($this->params['named']['curso_id']))
+		{
+			$conditions['Materia.curso_id ='] = $this->params['named']['curso_id'];
+		}
 		if(!empty($this->params['named']['alia']))
 		{
 			$conditions['Materia.alia ='] = $this->params['named']['alia'];
 		}
-
+		
 		$materias = $this->paginate('Materia', $conditions);
-		$this->set(compact('materias', 'cursos'));
+		$this->set(compact('materias', 'cursos', 'centros'));
 	}
 
 	public function view($id = null) {
@@ -57,6 +87,11 @@ class MateriasController extends AppController {
 
 	
 	public function add() {
+        //abort if cancel button was pressed  
+        if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		}
         if ($this->request->is('post')) {
             $this->Materia->create();
             if(empty($this->data['Materia']['contenido']['name'])){
