@@ -48,9 +48,9 @@ class InscripcionsController extends AppController {
 		{
 			$conditions['Inscripcion.legajo_nro ='] = $this->params['named']['legajo_nro'];
 		}
-		if(!empty($this->params['named']['alumno_id']))
+		if(!empty($this->params['named']['estado']))
 		{
-			$conditions['Inscripcion.alumno_id ='] = $this->params['named']['alumno_id'];
+			$conditions['Inscripcion.estado ='] = $this->params['named']['estado'];
 		}
 		$inscripcions = $this->paginate('Inscripcion',$conditions);
 		$this->set(compact('inscripcions', 'alumnos', 'centros'));
@@ -85,10 +85,10 @@ class InscripcionsController extends AppController {
             $alumnoDoc = $alumnosDoc['Alumno']['documento_nro'];
 			//Genera el nro de legajo y se deja en los datos que se intentaran guardar
 			$codigoActual = $this->__getCodigo($ciclo, $alumnoDoc);
-			
 			//Comprueba que ese legajo no exista.
-			$codigoLista = $this->Inscripcion->find('list', array('fields'=>array('id','legajo_nro'), 'conditions'=>array('Inscripcion.legajo_nro'==$codigoActual)));
-            if($codigoLista){ 
+			$codigoLista = $this->Inscripcion->find('list', array('fields'=>array('legajo_nro')));
+            if (in_array($codigoActual, $codigoLista, true))
+            { 
                 $this->Session->setFlash('El alumno ya está inscripto en este ciclo.', 'default', array('class' => 'alert alert-danger'));
 			}else{
 				$this->request->data['Inscripcion']['legajo_nro'] = $this->__getCodigo($ciclo, $alumnoDoc);
