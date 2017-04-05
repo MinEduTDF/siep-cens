@@ -64,7 +64,6 @@ Configure::write('Dispatcher.filters', array(
     'AssetDispatcher',
     'CacheDispatcher'
 ));
-
 CakePlugin::load('Upload');
 CakePlugin::load('DebugKit');
 CakePlugin::load('ReportManager',array('bootstrap' => true));
