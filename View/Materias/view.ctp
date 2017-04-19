@@ -29,9 +29,9 @@
 			<b><?php echo __('Dictado:'); ?></b>
 			<?php echo ($materia['Materia']['dictado']); ?></p>
 
-			<b><?php echo __('Contenido:'); ?></b>
+			<!--<b><?php echo __('Contenido:'); ?></b>
 			<?php echo $this->Html->link('View File', '../files/materias/'.$materia['Materia']['contenido'], 
-						           array('class' => 'button', 'target' => '_blank')); ?></p>
+						           array('class' => 'button', 'target' => '_blank')); ?></p>-->
             
   </div><div class="col-md-4 col-sm-6 col-xs-8">	
 

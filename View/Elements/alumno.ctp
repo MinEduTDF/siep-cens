@@ -21,7 +21,6 @@
     <span class="name"><span class="glyphicon glyphicon-user"></span> <?php echo $alumno['Alumno']['nombre_completo_alumno']; ?></span></br>
     <span class="text"><span class="glyphicon glyphicon-earphone"></span> <?php echo $alumno['Alumno']['telefono_nro']; ?></span><br/>
     <!--<span class="text"><span class="glyphicon glyphicon-envelope"></span> <?php echo $this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email']); ?></span><br/>-->
-    <span class="text"><span class="glyphicon glyphicon-map-marker"></span> <?php echo ($alumno['Alumno']['barrio'].' '.$alumno['Alumno']['calle_nombre'].' '.$alumno['Alumno']['calle_nro']); ?></span><br/>
     <hr />
       <div class="text-right">
         <span class="link"><?php echo $this->Html->link('<i class= "glyphicon glyphicon-eye-open"></i>', array('controller' => 'alumnos', 'action' => 'view', $alumno['Alumno']['id']), array('class' => 'btn btn-success','escape' => false)); ?></span>

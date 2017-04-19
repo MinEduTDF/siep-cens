@@ -104,7 +104,9 @@ class MateriasController extends AppController {
 			   if($this->Materia->save($this->request->data)) {
 				  move_uploaded_file($file['tmp_name'], APP . 'webroot/files/materias/' .DS. time().$file['name']);  
 				  $this->Session->setFlash(__('Los Contenidos se guardaron.'));
-				  return $this->redirect(array('action' => 'index'));
+				  //return $this->redirect(array('action' => 'index'));
+				  $inserted_id = $this->Materia->id;
+				  $this->redirect(array('action' => 'view', $inserted_id));
 		       }
 	        }
            $this->Session->setFlash(__('Los Contenidos no se guardaron.'));
@@ -126,7 +128,9 @@ class MateriasController extends AppController {
 		  }
 		  if ($this->Materia->save($this->data)) {
 				$this->Session->setFlash('La materia ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Materia->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La materia no ha sido grabada. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}

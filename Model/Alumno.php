@@ -284,14 +284,7 @@ class Alumno extends AppModel {
                            'message' => 'Indicar un nº de calle.'
                            )
 					),
-					'barrio' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-                           'required' => 'create',
-                           'message' => 'Indicar un barrio.'
-                           )
-                   ),	   
-                   'ciudad' => array(
+					'ciudad' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
                            'required' => 'create',

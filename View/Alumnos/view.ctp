@@ -33,6 +33,8 @@
                     <div class="col-md-8 col-sm-6 col-xs-8">
                     <b><?php echo __('Direccion: '); ?></b>
                     <?php echo $alumno['Alumno']['calle_nombre'].' N° '.$alumno['Alumno']['calle_nro']; ?></p>
+                    <b><?php echo __('Barrio: '); ?></b>
+                    <?php echo $barrioNombre[$alumno['Alumno']['barrio_id']]; ?></p>
                     <b><?php echo __('Telefono: '); ?></b>
                     <?php echo $alumno['Alumno']['telefono_nro']; ?></p>
                     <!--<b><?php echo __('Email: '); ?></b>

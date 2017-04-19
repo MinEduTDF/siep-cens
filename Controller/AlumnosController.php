@@ -79,7 +79,10 @@ class AlumnosController extends AppController {
 		} else {
 			$foto = 1;
 		}
-		$this->set(compact('cicloNombre', 'foto', 'materiaAlia'));
+		$this->loadModel('Barrio');
+		$barrioNombre = $this->Barrio->find('list', array('fields'=>array('nombre')));
+
+		$this->set(compact('cicloNombre', 'foto', 'materiaAlia', 'barrioNombre'));
     }
 	
 	public function add() {
@@ -114,7 +117,11 @@ class AlumnosController extends AppController {
 				$this->Session->setFlash('El alumno no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-	}
+
+		$this->loadModel('Barrio');          
+        $barrios = $this->Barrio->find('list', array('fields' => array('nombre')));
+        $this->set('barrios', $barrios);
+    }
 
 	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
@@ -152,6 +159,10 @@ class AlumnosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Alumno->read(null, $id);
 		}
+
+		$this->loadModel('Barrio');          
+          $barrios = $this->Barrio->find('list', array('fields' => array('nombre')));
+          $this->set('barrios', $barrios);
 	}
 
 	public function delete($id = null) {

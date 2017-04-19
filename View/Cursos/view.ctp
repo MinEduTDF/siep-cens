@@ -110,17 +110,15 @@
 	</div>
 </div>-->
 <!-- end Cargos Relacionados -->
-
 <!-- Materias Relacionadas -->
-<!--<div id="click_02" class="titulo_acordeon">Espacios Relacionados <span class="caret"></span></div>
+<div id="click_02" class="titulo_acordeon">Espacios Relacionados <span class="caret"></span></div>
 <div id="acordeon_02">
 		<div class="row">
 	<?php if (!empty($curso['Materia'])):?>
-  	<!-- Swiper 
+  	<!-- Swiper --> 
     <div class="swiper-container" style="height: 200px;">
         <div class="swiper-wrapper" >
 	<?php foreach ($curso['Materia'] as $materia): ?>
-
 	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
@@ -129,25 +127,26 @@
 			<?php echo '<b>Carga horaria en:</b> '.$materia['carga_horaria_en'];?><br>
 			<?php echo '<b>Carga horaria semanal:</b> '.$materia['carga_horaria_semanal'];?><br>
         <div class="text-right">
-            <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
-			<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+            <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+          <?php if(($current_user['role'] == 'superadmin') || ($current_user['role'] == 'admin')): ?> 
+		    <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>	
 			<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i>'), array('cont""roller' => 'materias', 'action' => 'delete', $materia['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
+          <?php endif; ?>  
             </div>
 		</div>
 	</div>
 </div>
 		<?php endforeach; ?>
 			</div>
-			        <!-- Add Pagination 
+			        <!-- Add Pagination --> 
         <div class="swiper-pagination"></div>
     </div>
-    <!-- Include plugin after Swiper 
+    <!-- Include plugin after Swiper -->
 		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
     </div>
 </div>
 <!-- end Materias Relacionadas -->
-
 <!-- Inscripciones Relacionadas -->
 <div id="click_01" class="titulo_acordeon">Inscripciones Relacionadas <span class="caret"></span></div>
 <div id="acordeon_01">
@@ -186,7 +185,6 @@
     </div>
 </div>
 <!-- end Inscripciones Relacionadas -->
-
 <!-- Ciclos Relacionadas -->
 <!--<div class="related">
 	<h3><?php echo __('Ciclos Relacionados');?></h3>

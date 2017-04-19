@@ -33,7 +33,10 @@
                                 <b><?php echo __('Fines:'); ?></b>
                                 <?php echo $inscripcion['Inscripcion']['fines']; ?></p>
                                 <b><?php echo __('Recursante:'); ?></b>
-                                <?php echo $inscripcion['Inscripcion']['recursante']; ?></p>
+                                    <?php if($inscripcion['Inscripcion']['recursante'] == 1): ?>
+                                    <?php echo "SI"; ?>
+                                    <?php endif; ?>
+                                    <?php echo "No"; ?></p>
                                 <b><?php echo __('Condición de aprobación:'); ?></b>
                                 <?php echo $inscripcion['Inscripcion']['condicion_aprobacion']; ?></p>
                              </div>
@@ -53,8 +56,8 @@
                                     <li><span class="label label-danger"><?php echo 'Falta Fotocopia DNI'; ?></span></li><?php endif; ?>
                                     <?php if(!$inscripcion['Inscripcion']['certificado_septimo'] == 1): ?>
                                     <li><span class="label label-danger"><?php echo 'Falta Certificado de Séptimo'; ?></span></li><?php endif; ?>
-                                    <?php if(!$inscripcion['Inscripcion']['certificado_laboral'] == 1): ?>
-                                    <li><span class="label label-danger"><?php echo 'Falta Certificado Laboral'; ?></span></li><?php endif; ?>
+                                    <?php if(!$inscripcion['Inscripcion']['analitico'] == 1): ?>
+                                    <li><span class="label label-danger"><?php echo 'Falta Analítico'; ?></span></li><?php endif; ?>
                                   </ul>
                             </div>
                         </div>
@@ -83,6 +86,9 @@
                                     <?php echo $inscripcion['Inscripcion']['libro_nro']; ?></p>                                    
                                     <b><?php echo __('Folio Nº:'); ?></b>                                    
                                     <?php echo $inscripcion['Inscripcion']['folio_nro']; ?></p>
+
+                                    <b><?php echo __('Título Nº:'); ?></b>                                    
+                                    <?php echo $inscripcion['Inscripcion']['titulo_nro']; ?></p>
                                 </div>
                             </div>
                     <!--<h3>Datos de la titulación</h3>-->
