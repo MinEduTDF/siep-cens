@@ -70,14 +70,14 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'mysql.hostinger.com.ar',
-		'login' => 'u527857046_root',
-		'password' => 'tr43s2017',
-		'database' => 'u527857046_traes',
+		'login' => 'u792410942_root',
+		'password' => 'siep2017',
+		'database' => 'u792410942_cens',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
 	*/
-    public $default = array(
+	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
@@ -87,7 +87,6 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
-
 	public $test = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,

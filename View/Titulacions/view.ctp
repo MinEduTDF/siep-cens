@@ -98,7 +98,7 @@
  </div>
 <!-- end main -->
 <!-- Cursos Relacionados -->
-<div id="click_04" class="titulo_acordeon">Cursos Relacionadas <span class="caret"></span></div>
+<div id="click_04" class="titulo_acordeon">Secciones Relacionadas <span class="caret"></span></div>
 <div id="acordeon_04">
 		<div class="row">
 	        <?php if (!empty($titulacions['Curso'])):?>

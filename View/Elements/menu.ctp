@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!--<a class="navbar-brand" href="#">-->TraEs. [ <span class="glyphicon glyphicon-user"</span> <?php echo $this->Html->link($current_user['username'], array('controller' => 'users', 'action' => 'view', $current_user['id'])); ?> ]<!--</a>-->
+      <!--<a class="navbar-brand" href="#">-->SIEP. [ <span class="glyphicon glyphicon-user"</span> <?php echo $this->Html->link($current_user['username'], array('controller' => 'users', 'action' => 'view', $current_user['id'])); ?> ]<!--</a>-->
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -22,7 +22,7 @@
             <li><?php echo $this->Html->link(__('Agentes'),'/empleados'); ?></li>
             <li><?php echo $this->Html->link(__('Usuarios'),'/users'); ?></li>
             <li><?php echo $this->Html->link(__('Ciclos'),'/ciclos'); ?></li>
-            <!--<li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>-->
+            <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Secciones'), '/cursos'); ?></li>
             <li><?php echo $this->Html->link(__('Espacios'),'/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
@@ -37,6 +37,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Carga <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Secciones'), '/cursos'); ?></li>
             <li><?php echo $this->Html->link(__('Espacios'),'/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
@@ -52,12 +53,14 @@
           <ul class="dropdown-menu">
            <?php if($current_user['role'] == 'usuario'): ?> 
             <li><?php echo $this->Html->link(__('Instituciones'),'/centros'); ?></li>
+            <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Secciones'),'/cursos'); ?></li>
             <li><?php echo $this->Html->link(__('Espacios'),'/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
            <?php endif; ?>
             <li><?php echo $this->Html->link(__('Alumnos por Sección'), '/cursos_inscripcions');?></li>
+            <!--<li><?php echo $this->Html->link(__('Alumnos por Materia'), '/inscripcions_materias');?></li>-->
            <?php if($current_user['role'] == 'superadmin'): ?> 
             <li><?php echo $this->Html->link('Respaldos', 'http://localhost/mybackups/import.php', array('target'=>'_blank'));?></li>
             <li><?php echo $this->Html->link(__('Reportes'),'/report_manager/reports');?></li>

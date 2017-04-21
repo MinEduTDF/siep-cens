@@ -27,6 +27,8 @@
                     <?php echo ($alumno['Alumno']['apellidos']); ?></p>
                     <b><?php echo __('Documento: '); ?></b>
                     <?php echo ($alumno['Alumno']['documento_tipo']).' '.($alumno['Alumno']['documento_nro']); ?></p>
+                    <b><?php echo __('Legajo Físico N°: '); ?></b>
+                    <?php echo $alumno['Alumno']['legajo_fisico_nro']; ?></p>
                     <b><?php echo __('Edad: '); ?></b>
                     <?php echo ($alumno['Alumno']['edad']); ?></p>
 	                </div>

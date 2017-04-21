@@ -2,9 +2,7 @@
 <div class="row">
   <div class="col-md-4 col-sm-6 col-xs-12">
 	  <?php
-          $nombres = array('Bachiller en Cs. Naturales' => 'Bachiller en Cs. Naturales', 'Bachiller en Turismo' => 'Bachiller en Turismo',
-                           'Perito Auxiliar en Enfermería' => 'Perito Auxiliar en Enfermería');
-          echo $this->Form->input('nombre', array('label' => 'Nombre*', 'empty' => 'Ingrese un nombre...', 'options' => $nombres, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el nombre de la titulación'));
+          echo $this->Form->input('nombre', array('label' => 'Nombre*', 'empty' => 'Ingrese un nombre...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el nombre de la titulación'));
           $certificaciones = array('Primaria de 6 años' => 'Primaria de 6 años', 'Primaria de 7 años' => 'Primaria de 7 años',
                                    '9 años' => '9 años', 'Secundaria' => 'Secundaria', 'EGB/ Primaria y Ciclo Básico' => 'EGB/ Primaria y Ciclo Básico',
                                    'Sin requisitos' => 'Sin requisitos', 'Medio completo' => 'Medio completo', 'Otros' => 'Otros' );
