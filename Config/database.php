@@ -65,18 +65,6 @@
  * A key/value array of driver specific connection options.
  */
 class DATABASE_CONFIG {
-	/*
-	public $default = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'mysql.hostinger.com.ar',
-		'login' => 'u792410942_root',
-		'password' => 'siep2017',
-		'database' => 'u792410942_cens',
-		'prefix' => '',
-		'encoding' => 'utf8',
-	);
-	*/
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,

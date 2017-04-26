@@ -60,7 +60,7 @@
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
            <?php endif; ?>
             <li><?php echo $this->Html->link(__('Alumnos por Sección'), '/cursos_inscripcions');?></li>
-            <!--<li><?php echo $this->Html->link(__('Alumnos por Materia'), '/inscripcions_materias');?></li>-->
+            <li><?php echo $this->Html->link(__('Alumnos por Materia'), '/inscripcions_materias');?></li>
            <?php if($current_user['role'] == 'superadmin'): ?> 
             <li><?php echo $this->Html->link('Respaldos', 'http://localhost/mybackups/import.php', array('target'=>'_blank'));?></li>
             <li><?php echo $this->Html->link(__('Reportes'),'/report_manager/reports');?></li>
